@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текущие дата и время</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, sans-serif;
+            background: #1e1e2e;
+            color: #e0e0f0;
+        }
+        h1 {
+            font-weight: 400;
+            opacity: 0.7;
+        }
+        .date { font-size: 2.5rem; }
+        .time { font-size: 4rem; font-weight: 700; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <h1>Сегодня</h1>
+    <div class="date">{{ date }}</div>
+    <div class="time">{{ time }}</div>
+</body>
+</html>
