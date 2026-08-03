@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Анкета — Мой Сайт{% endblock %}
+
+{% block content %}
+
+    <h1 class="mb-4">Анкета</h1>
+
+    <form method="POST" class="mb-4">
+        <div class="mb-3">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">Город</label>
+            <input type="text" id="city" name="city" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="hobby" class="form-label">Хобби</label>
+            <input type="text" id="hobby" name="hobby" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Возраст</label>
+            <input type="number" id="age" name="age" class="form-control" min="1" max="120" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+
+    <hr>
+
+    <h2 class="mt-4 mb-3">Отправленные анкеты</h2>
+
+    {% if anketas %}
+        <div class="row g-4">
+            {% for a in anketas %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ a.name }}</h5>
+                            <p class="card-text mb-1"><small class="text-muted">Город:</small> {{ a.city }}</p>
+                            <p class="card-text mb-1"><small class="text-muted">Хобби:</small> {{ a.hobby }}</p>
+                            <p class="card-text mb-0"><small class="text-muted">Возраст:</small> {{ a.age }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted">Пока никто не заполнил анкету. Будьте первым!</p>
+    {% endif %}
+
+{% endblock %}

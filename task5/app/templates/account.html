@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Аккаунт — Мой Сайт{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">Личный кабинет</h1>
+
+<div class="card shadow-sm mb-4" style="max-width: 32rem;">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Ваши данные</h5>
+        <p class="mb-1"><strong>Имя пользователя:</strong> {{ current_user.username }}</p>
+        <p class="mb-0"><strong>Почта:</strong> {{ current_user.email }}</p>
+    </div>
+</div>
+
+<a href="{{ url_for('edit_account') }}" class="btn btn-primary">Редактировать профиль</a>
+<a href="{{ url_for('change_password') }}" class="btn btn-outline-secondary">Сменить пароль</a>
+
+{% endblock %}

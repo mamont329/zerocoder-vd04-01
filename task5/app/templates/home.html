@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Главная — Мой Сайт{% endblock %}
+
+{% block content %}
+
+    <!-- Приветствие -->
+    <section class="mb-5 text-center">
+        <h1 class="mb-3">Добро пожаловать!</h1>
+        <p class="lead text-muted">
+            Учебный сайт на Flask с базой данных и аутентификацией.
+            Зарегистрируйтесь, войдите и отредактируйте свой профиль в личном кабинете.
+        </p>
+    </section>
+
+    <!-- Слайдер (carousel) с 4 фото -->
+    <section id="slider" class="mb-5">
+        <h2 class="mb-3">Галерея</h2>
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
+            </div>
+            <div class="carousel-inner rounded">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='img/slide1.jpg') }}" class="d-block w-100 slide-img" alt="Слайд 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='img/slide2.jpg') }}" class="d-block w-100 slide-img" alt="Слайд 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='img/slide3.jpg') }}" class="d-block w-100 slide-img" alt="Слайд 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='img/slide4.jpg') }}" class="d-block w-100 slide-img" alt="Слайд 4">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Карточки пользователей -->
+    <section id="cards">
+        <h2 class="mb-3">Наши пользователи</h2>
+        <div class="row g-4">
+            <div class="col-12 col-lg-4">
+                <div class="card text-center h-100 shadow-sm">
+                    <img src="{{ url_for('static', filename='img/user1.jpg') }}" class="card-img-top user-photo" alt="Фото пользователя">
+                    <div class="card-body">
+                        <h5 class="card-title">Иванов Иван Иванович</h5>
+                        <p class="card-text mb-1"><small class="text-muted">E-mail:</small> ivanov@mail.ru</p>
+                        <p class="card-text mb-1"><small class="text-muted">Дата рождения:</small> 15.03.1990</p>
+                        <p class="card-text"><small class="text-muted">Город:</small> Москва</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="card text-center h-100 shadow-sm">
+                    <img src="{{ url_for('static', filename='img/user2.jpg') }}" class="card-img-top user-photo" alt="Фото пользователя">
+                    <div class="card-body">
+                        <h5 class="card-title">Петрова Мария Сергеевна</h5>
+                        <p class="card-text mb-1"><small class="text-muted">E-mail:</small> petrova@gmail.com</p>
+                        <p class="card-text mb-1"><small class="text-muted">Дата рождения:</small> 22.07.1988</p>
+                        <p class="card-text"><small class="text-muted">Город:</small> Санкт-Петербург</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="card text-center h-100 shadow-sm">
+                    <img src="{{ url_for('static', filename='img/user3.jpg') }}" class="card-img-top user-photo" alt="Фото пользователя">
+                    <div class="card-body">
+                        <h5 class="card-title">Сидоров Алексей Петрович</h5>
+                        <p class="card-text mb-1"><small class="text-muted">E-mail:</small> sidorov@yandex.ru</p>
+                        <p class="card-text mb-1"><small class="text-muted">Дата рождения:</small> 09.11.1995</p>
+                        <p class="card-text"><small class="text-muted">Город:</small> Казань</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
