@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Цитаты — Мой Сайт{% endblock %}
+
+{% block content %}
+
+    <h1 class="mb-4">Случайная цитата</h1>
+
+    {% if quote %}
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p class="fs-4">«{{ quote.text }}»</p>
+                    <footer class="blockquote-footer mt-2">{{ quote.author }}</footer>
+                </blockquote>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <!-- Кнопка = обычная ссылка на /quote. Клик перезагружает страницу,
+         маршрут снова идёт в API — приходит новая цитата. -->
+    <a href="/quote" class="btn btn-primary">Новая цитата</a>
+
+    <p class="text-muted mt-3 mb-0">
+        <small>Источник: <a href="https://zenquotes.io/" target="_blank" rel="noopener">ZenQuotes API</a></small>
+    </p>
+
+{% endblock %}
